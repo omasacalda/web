@@ -9,7 +9,8 @@ export default class Homepage extends Component {
       <MainTemplte>
         <h1>Homepage</h1>
         <div>
-          <Link to="/secondary-page" className="pure-menu-link">Go to Secondary page</Link>
+          {/*<Link to="/secondary-page" className="pure-menu-link">Go to Secondary page</Link>*/}
+          <h3>Homepage :)</h3>
         </div>
       </MainTemplte>
     );
