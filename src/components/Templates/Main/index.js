@@ -6,9 +6,9 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-        <Header {...this.props} />
+        <Header />
 
-        <div className="container main-content">
+        <div className={this.props.className}>
           {this.props.children}
         </div>
       </div>

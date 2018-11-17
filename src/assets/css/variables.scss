@@ -1,7 +1,9 @@
 // General brand colors
-$primary-color: #000;
-$primary-color-hover: #dfdfdf;
+$black: #000;
 $white: #fff;
+$primary-black: #4d4d4d;
+$primary-green: #79c942;
+$primary-green-hover: #87d05a;
 
 // Responsive breakpoints
 $screen-sm-min: 768px;
@@ -10,3 +12,7 @@ $screen-md-min: 992px;
 $screen-sm-max: ($screen-md-min - 1);
 $screen-lg-min: 1200px;
 $screen-md-max: ($screen-lg-min - 1);
+
+// Fonts
+$font-bold: 600;
+$font-light-bold: 500;

@@ -1,17 +1,48 @@
 @import '../variables.scss';
 
-.header {
-  background-color: $primary-color;
-  color: $white;
-  position: sticky;
-  top: 0;
-  right: 0;
-  left: 0;
-  padding: 1rem;
-  height: 70px;
-  text-align: center;
+.navbar {
+  min-height: 80px;
+  background-color: $white;
+  margin: 0;
+  border-bottom: none;
 
-  h1 {
-    font-size: 18px;
+  .navbar-brand {
+    padding: 10px 15px;
+    height: 80px;
+    line-height: 80px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .navbar-nav {
+    font-size: 16px;
+    font-weight: $font-light-bold;
+
+    a {
+      color: $primary-black;
+
+      @media (min-width: $screen-sm-min) {
+        /* (80px - line-height of 27px) / 2 = 26.5px */
+        padding-top: 26.5px;
+        padding-bottom: 26.5px;
+        line-height: 27px;
+      }
+    }
+
+    .active {
+      font-weight: $font-bold;
+      border-bottom: 3px solid $primary-black;
+
+      a {
+        background-color: transparent;
+        padding-bottom: 1px;
+
+        &:focus, &:hover {
+          background-color: transparent;
+        }
+      }
+    }
   }
 }

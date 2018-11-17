@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 import '../../../../assets/css/general.css';
 
-// import Homepage from '../../containers/HomepageContainer';
-import Homepage from '../../components/Homepage';
+import Homepage from '../../containers/HomepageContainer';
 
 export default class App extends Component {
   render() {
     return(
-      <main className="app-container">
-        {/*<Route exact path="/" component={Homepage} />*/}
-        <h3>Hello :)</h3>
-      </main>
+      <Router>
+        <main className="app-container">
+          <Route exact path="/" component={Homepage} />
+          <Route path="/test" component={Homepage} />
+        </main>
+      </Router>
     );
   }
 }
