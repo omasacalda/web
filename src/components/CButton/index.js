@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 const CButton = (props) => {
   return (
     <Button
-      className={`custom-btn ${props.size} ${props.className}`}
+      className={`custom-btn ${props.size} ${props.className || ''}`}
       onClick={props.onClick}>
       {props.text}
     </Button>
