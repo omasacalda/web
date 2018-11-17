@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-import { hero } from '../../../../assets/images';
+import { hero, donation, volunteer } from '../../../../assets/images';
 
 import MainTemplate from '../../../../components/Templates/Main';
 import CButton from '../../../../components/CButton';
+import CCardBig from '../../../../components/CCardBig';
 
 export default class Homepage extends Component {
   render() {
@@ -17,6 +18,30 @@ export default class Homepage extends Component {
               text="Înscrie-te"
               size="med" />
             <span className="subtext">Porții servite: 69.452</span>
+          </div>
+        </section>
+        <section className="cardBig-container">
+          <div className="row">
+            <h1>
+              VREI SĂ AJUȚI?
+          </h1>
+          <p>Vezi cum poți face diferența.</p>
+            <div className="col-sm-6">
+              <CCardBig
+                image={donation}
+                size="med"
+                title="Donează!"
+                text="AFLĂ MAI MULTE"
+              />
+            </div>
+            <div className="col-sm-6">
+              <CCardBig
+                image={volunteer}
+                size="med"
+                title="Fii voluntar!"
+                text="AFLĂ MAI MULTE"
+              />
+            </div>
           </div>
         </section>
       </MainTemplate>

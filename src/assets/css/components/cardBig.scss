@@ -1,0 +1,37 @@
+@import '../variables.scss';
+
+.cardBig-container {
+  background-color: $primary-grey;
+  display: flex;
+  padding: 50px;
+
+  .customBig-card {
+    background-color: $white;
+    border-radius: 10px;
+    padding: 50px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  
+    &.med {
+      width: 250px;
+      height: 300px;
+    }
+  
+    &.large {
+      width: 600px;
+      height: 600px;
+    }
+  
+    &:hover, &:focus, &:active, &:active:focus {
+      background-color: $white;
+    }
+  
+    .card-image {
+      max-width: 100px;
+      height: 70px;
+    }
+  }
+}
