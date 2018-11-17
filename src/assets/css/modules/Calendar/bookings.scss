@@ -1,0 +1,23 @@
+@import '../../variables.scss';
+
+.calendar-bookings {
+  border-radius: 20px;
+  border: 1px solid $grey;
+
+  .header {
+    display: flex;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+    background-color: $orange;
+    color: $white;
+    padding: 7px 5%;
+    justify-content: center;
+
+    span {
+      flex: 1;
+      text-align: center;
+      font-weight: 900;
+      font-size: 28px;
+    }
+  }
+}

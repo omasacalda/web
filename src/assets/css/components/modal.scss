@@ -1,0 +1,26 @@
+@import '../variables.scss';
+
+.custom-modal {
+  .modal-dialog {
+    margin: 7% auto;
+
+    .modal-content {
+      border-radius: 10px;
+
+      .modal-header {
+        border: none;
+
+        .close {
+          font-size: 35px;
+          font-weight: 400;
+          color: $primary-black;
+          opacity: 1;
+
+          &:hover {
+            opacity: .7;
+          }
+        }
+      }
+    }
+  }
+}

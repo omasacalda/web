@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
 
 import '../../../../assets/css/general.css';
 
-import Homepage from '../../containers/HomepageContainer';
+import Homepage from '../../../Homepage/containers/HomepageContainer';
+import Calendar from '../../../Calendar/containers/CalendarContainer';
+
+library.add(fas);
 
 export default class App extends Component {
   render() {
@@ -11,7 +17,8 @@ export default class App extends Component {
       <Router>
         <main className="app-container">
           <Route exact path="/" component={Homepage} />
-          <Route path="/test" component={Homepage} />
+          <Route exact path="/test" component={Homepage} />
+          <Route exact path="/calendar/:city" component={Calendar} />
         </main>
       </Router>
     );
