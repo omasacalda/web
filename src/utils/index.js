@@ -9,7 +9,7 @@ const getFormattedDate = (date) => {
 };
 
 const getNextYearDate = () => {
-  return new Date(moment().add('years', 1).format('YYYY-MM-DD'));
+  return new Date(moment().endOf('month').add('years', 1).format('YYYY-MM-DD'));
 };
 
 export {

@@ -1,4 +1,5 @@
 import * as c from './constants';
+import _set from 'lodash.set';
 
 const apiInitialState = {
   pending: false,
@@ -6,10 +7,22 @@ const apiInitialState = {
   success: false
 };
 
+const fieldsInitialState = {
+  first_name: '',
+  last_name: '',
+  email: '',
+  phone: '',
+  person_count: '4',
+  type: 'companie',
+  date: null,
+  city_id: 1
+};
+
 const initialState = {
   bookings: [],
   pendingBookings: [],
   selectedDate: null,
+  fields: fieldsInitialState,
   api: apiInitialState
 };
 
@@ -39,10 +52,43 @@ export default (state = initialState, action = {}) => {
       }
     }
 
+    case c.ADD_BOOKING_PENDING:
+      return {
+        ...state,
+        api: { pending: true, success: false, error: false }
+      };
+    case c.ADD_BOOKING_ERROR:
+      return {
+        ...state,
+        api: { pending: false, success: false, error: action.payload }
+      };
+    case c.ADD_BOOKING_SUCCESS:
+      return {
+        ...state,
+        api: { pending: false, success: true, error: false }
+      };
+
+    case c.SET_FIELD: {
+      const fieldsCopy = Object.assign({}, state.fields);
+      _set(fieldsCopy, action.path, action.payload);
+
+      return {
+        ...state,
+        fields: fieldsCopy
+      };
+    }
+
     case c.SET_SELECTED_DATE:
+      console.log('action.payload', action.payload);
       return {
         ...state,
         selectedDate: action.payload
+      };
+
+    case c.CLEAR_FIELDS:
+      return {
+        ...state,
+        fields: fieldsInitialState
       };
 
     case c.CLEAR:
