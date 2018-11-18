@@ -11,6 +11,9 @@ export default class Calendar extends Component {
     super(props);
 
     this.showModal = this.showModal.bind(this);
+    this.handleFieldChange = this.handleFieldChange.bind(this);
+    this.setSelectedDate = this.setSelectedDate.bind(this);
+    this.addBooking = this.addBooking.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +22,22 @@ export default class Calendar extends Component {
 
   showModal() {
     this.bookingModal.openModal();
+  }
+
+  handleFieldChange(name, event) {
+    this.props.setField(name, event.target.value);
+  }
+
+  setSelectedDate(date) {
+    this.props.setField('date', date);
+  }
+
+  addBooking(e) {
+    e.preventDefault();
+
+    this.props.addBooking(this.props.fields);
+    this.props.clearFields();
+    this.bookingModal.closeModal();
   }
 
   render() {
@@ -49,9 +68,13 @@ export default class Calendar extends Component {
         <Bookings
           bookings={props.bookings}
           showModal={this.showModal}
-          setSelectedDate={props.setSelectedDate} />
+          setSelectedDate={this.setSelectedDate} />
 
-        <BookingModal modalRef={ref => this.bookingModal = ref} />
+        <BookingModal
+          modalRef={ref => this.bookingModal = ref}
+          handleFieldChange={this.handleFieldChange}
+          addBooking={this.addBooking}
+          fields={this.props.fields} />
       </MainTemplate>
     );
   }
