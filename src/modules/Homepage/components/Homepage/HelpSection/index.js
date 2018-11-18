@@ -14,7 +14,7 @@ const HelpSection = (props) => (
           </p>
 
       <div className="row">
-        <div className="col-12 col-sm-6 card-container">
+        <div className="col-12 col-sm-6 card-container" >
           <CCardBig
             size="med"
             image={donation}
@@ -22,7 +22,7 @@ const HelpSection = (props) => (
             text="Află mai multe"
           />
         </div>
-        <div className="col-12 col-sm-6 card-container">
+        <div className="col-12 col-sm-6 right-card-container">
           <CCardBig
             size="med"
             image={volunteer}

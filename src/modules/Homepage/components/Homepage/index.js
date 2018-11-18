@@ -6,6 +6,7 @@ import MainTemplate from '../../../../components/Templates/Main/index';
 import CButton from '../../../../components/CButton/index';
 import HelpSection from './HelpSection/index';
 import Modal from './Modal/index';
+import InfoSection from './InfoSection/index';
 
 export default class Homepage extends Component {
   constructor(props) {
@@ -46,12 +47,23 @@ export default class Homepage extends Component {
           </div>
         </section>
 
-
-        <div className="container-fluid" style={{ backgroundColor: "#37AFC7" }}>
-        
-        </div>
+        <InfoSection
+        title={"Asociația \"O masă caldă"}
+        text="apără dreptul fiecăruia de a se implica voluntar în comunitate indiferent de vârstă, avere, convingeri politice,
+        naționalitate, rasă, sex, religie sau orientare sexuala, etc."
+        backgroundColor="#37AFC7"
+        />
 
         <HelpSection />
+
+         <InfoSection
+        title={"Cine beneficiează?"}
+        text="Oricine poate beneficia de o masă caldă. Nu privim etnia, vărsta, condiția materială sau la îmbrăcămintea celor care vin să primească mâncare.
+        Hrana este o nevoie de bază si cei care vin la cantinele noastre chiar au nevoie de ea. Printre cei care primesc o masă caldă sunt copii din familii
+        cu dificulități financiare, oameni fără adăpost, oameni care se află la limita sărăciei. 
+        În România, 41,7% din populație se află la risc de sărăcie."
+        backgroundColor="#EEC43E"
+        />
 
         <Modal
           modalRef={ref => this.modal = ref}
