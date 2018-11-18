@@ -14,18 +14,9 @@
     margin-top: 30px;
   }
 
-  .left-card-container {
+  .card-container {
     align-items: center;
-    justify-content: flex-end;
     display: flex;
-    background-color: "blue";
-  }
-
-  .right-card-container {
-    align-items: center;
-    justify-content: flex-start;
-    display: flex;
-    background-color: "red";
   }
 
   .customBig-card {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import { hero, donation, volunteer } from '../../../../assets/images/index';
+import { hero } from '../../../../assets/images/index';
 
 import MainTemplate from '../../../../components/Templates/Main/index';
 import CButton from '../../../../components/CButton/index';
-import CCardBig from '../../../../components/CCardBig/index';
+import HelpSection from './HelpSection/index';
 import Modal from './Modal/index';
 
 export default class Homepage extends Component {
@@ -46,34 +46,12 @@ export default class Homepage extends Component {
           </div>
         </section>
 
-        <section className="cardBig-container">
-          <div className="container">
-            <h3 className="title">
-              VREI SĂ AJUȚI?
-            </h3>
-            <p>
-              Vezi cum poți face diferența
-            </p>
-            <div className="row">
-              <div className="col-12 col-sm-6 left-card-container">
-                <CCardBig
-                  size="med"
-                  image={donation}
-                  title="Donează!"
-                  text="Află mai multe"
-                />
-              </div>
-              <div className="col-12 col-sm-6 right-card-container">
-                <CCardBig
-                  size="med"
-                  image={volunteer}
-                  title="Fii voluntar!"
-                  text="Află mai multe"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+
+        <div className="container-fluid" style={{ backgroundColor: "#37AFC7" }}>
+        
+        </div>
+
+        <HelpSection />
 
         <Modal
           modalRef={ref => this.modal = ref}
