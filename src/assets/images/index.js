@@ -2,4 +2,9 @@ export const logo = require('../../assets/images/logo.png');
 export const hero = require('../../assets/images/hero.png');
 export const donation = require('../../assets/images/donation.png');
 export const volunteer = require('../../assets/images/volunteer.png');
-
+export const cluj = require('../../assets/images/cluj.jpg');
+export const bucuresti = require('../../assets/images/bucuresti.jpg');
+export const bistrita = require('../../assets/images/bistrtita.jpg');
+export const satuMare = require('../../assets/images/satu-mare.jpg');
+export const constanta = require('../../assets/images/constanta.jpg');
+export const zalau = require('../../assets/images/zalau.jpg');
