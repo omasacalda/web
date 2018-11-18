@@ -1,14 +1,14 @@
 import * as c from './constants';
 import { actionCreator, asyncActionCreator } from '../../../utils/redux';
 
-export const getCities = asyncActionCreator(
-  c.GET_CITIES_PENDING,
-  c.GET_CITIES_SUCCESS,
-  c.GET_CITIES_ERROR
+export const getBookings = asyncActionCreator(
+  c.GET_BOOKINGS_PENDING,
+  c.GET_BOOKINGS_SUCCESS,
+  c.GET_BOOKINGS_ERROR
 );
 
 export const set = {
-  city: actionCreator(c.SET_CITY),
+  date: actionCreator(c.SET_SELECTED_DATE),
 };
 
 export const clear = actionCreator(c.CLEAR);

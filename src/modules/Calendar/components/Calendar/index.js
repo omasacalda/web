@@ -4,9 +4,26 @@ import MainTemplate from '../../../../components/Templates/Main/index';
 
 import InfoCard from './InfoCard';
 import Bookings from './Bookings';
+import BookingModal from './BookingModal';
 
 export default class Calendar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.showModal = this.showModal.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.getBookings();
+  }
+
+  showModal() {
+    this.bookingModal.openModal();
+  }
+
   render() {
+    const props = this.props;
+
     return (
       <MainTemplate className="container calendar">
         <div className="row">
@@ -29,7 +46,12 @@ export default class Calendar extends Component {
             </InfoCard>
           </div>
         </div>
-        <Bookings />
+        <Bookings
+          bookings={props.bookings}
+          showModal={this.showModal}
+          setSelectedDate={props.setSelectedDate} />
+
+        <BookingModal modalRef={ref => this.bookingModal = ref} />
       </MainTemplate>
     );
   }

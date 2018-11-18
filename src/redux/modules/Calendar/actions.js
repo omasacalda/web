@@ -1,20 +1,20 @@
 import * as ac from './actionCreators';
-import * as homepageAPI from '../../../api/home';
+import * as bookingAPI from '../../../api/bookings';
 
-export function getCities() {
+export function getBookings() {
   return async (dispatch) => {
-    dispatch(ac.getCities.pending());
+    dispatch(ac.getBookings.pending());
     try {
-      const data = await homepageAPI.getCities();
-      dispatch(ac.getCities.success(data));
+      const data = await bookingAPI.getBookings();
+      dispatch(ac.getBookings.success(data));
     } catch (err) {
-      dispatch(ac.getCities.error(err));
+      dispatch(ac.getBookings.error(err));
     }
   };
 }
 
-export function setCity(payload) {
-  return dispatch => dispatch(ac.set.city(payload));
+export function setSelectedDate(payload) {
+  return dispatch => dispatch(ac.set.date(payload));
 }
 
 export function clear() {
