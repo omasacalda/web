@@ -1,4 +1,4 @@
-import { get, post, del } from '../utils/superagent';
+import { get } from '../utils/superagent';
 import { API_HOST } from '../config';
 
 export function getCities() {

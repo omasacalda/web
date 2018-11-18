@@ -1,23 +1,71 @@
 @import '../../variables.scss';
 
 .calendar-bookings {
-  border-radius: 20px;
-  border: 1px solid $grey;
 
-  .header {
-    display: flex;
-    align-items: center;
-    border-radius: 20px 20px 0 0;
-    background-color: $orange;
-    color: $white;
-    padding: 7px 5%;
-    justify-content: center;
 
-    span {
-      flex: 1;
+  .react-calendar {
+    border-radius: 20px;
+    //border: 1px solid $grey;
+
+    .react-calendar__navigation {
+      align-items: center;
+      border-radius: 20px 20px 0 0;
+      background-color: $orange;
+      color: $white;
+      padding: 7px 5%;
+      justify-content: center;
+
+      button {
+        background-color: $orange;
+        border: none;
+        font-weight: 900;
+        font-size: 28px;
+        outline: none;
+      }
+
+      .react-calendar__navigation__label {
+        text-transform: capitalize;
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+
+    .react-calendar__month-view__weekdays {
+      div {
+        &:last-child, &:nth-child(6) {
+          background-color: $light-grey;
+          color: $disabled-grey;
+        }
+      }
+    }
+
+    .react-calendar__month-view__weekdays__weekday, .date-tile {
+      text-transform: capitalize;
       text-align: center;
-      font-weight: 900;
-      font-size: 28px;
+      color: $primary-black;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 25px 15px;
+      border: 1px solid $border-color;
+      outline: none;
+    }
+
+    .date-tile {
+      &:hover {
+        background-color: $extra-light-grey;
+      }
+
+      &:disabled {
+        background-color: $red;
+        color: $white;
+      }
+
+      ~.react-calendar__month-view__days__day--weekend {
+        &:disabled {
+          background-color: $light-grey;
+          color: $disabled-grey;
+        }
+      }
     }
   }
 }

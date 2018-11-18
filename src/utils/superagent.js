@@ -72,7 +72,7 @@ export function post(path, payload, token = null) {
             return reject({ message: 'Something went wrong. Please try again or contact support.' });
           }
 
-          return reject({ message: err });
+          return reject({ message: res.body.data.message || err.toString() });
         }
 
         if (!res.body) {

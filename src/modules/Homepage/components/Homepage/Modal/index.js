@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import { FormGroup, FormControl } from 'react-bootstrap';
 
-import BaseModal from '../../../../../components/BaseModal/index';
-import CButton from '../../../../../components/CButton/index';
+import BaseModal from '../../../../../components/BaseModal';
+import CButton from '../../../../../components/CButton';
 
 const HomeModal = (props) => (
   <BaseModal

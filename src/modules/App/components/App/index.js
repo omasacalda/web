@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
 
 import '../../../../assets/css/general.css';
 
@@ -19,6 +20,8 @@ export default class App extends Component {
           <Route exact path="/" component={Homepage} />
           <Route exact path="/test" component={Homepage} />
           <Route exact path="/calendar/:city" component={Calendar} />
+
+          <NotificationContainer />
         </main>
       </Router>
     );
