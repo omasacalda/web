@@ -22,6 +22,10 @@ export default class Calendar extends Component {
     this.props.connectSocket();
   }
 
+  componentWillUnmount() {
+    this.props.removeBookingDateSocket();
+  }
+
   showModal() {
     this.props.setBookingDateSocket();
     this.bookingModal.openModal();
@@ -43,6 +47,7 @@ export default class Calendar extends Component {
 
   addBooking(e) {
     e.preventDefault();
+    this.props.removeBookingDateSocket();
 
     this.props.addBooking(this.props.fields);
     this.props.clearFields();

@@ -9,12 +9,13 @@ export function connect() {
 
     socketUtils.connectSocket((socket) => {
       socket.on("connect", function(){
-        // console.log("socket connected");
+        console.log("socket connected");
       });
       socket.on("disconnect", function(){
-         // console.log("socket disconnected");
+        console.log("socket disconnected");
       });
-      socketUtils.listenToEvent('bookings_in_progress', (data) => {
+      socket.on('bookings_in_progress', (data) => {
+        console.log('data', data);
         dispatch(addPendingBookings(data))
       });
       dispatch(ac.connect.success(socket));
