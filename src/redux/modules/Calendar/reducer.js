@@ -79,7 +79,6 @@ export default (state = initialState, action = {}) => {
     }
 
     case c.SET_SELECTED_DATE:
-      console.log('action.payload', action.payload);
       return {
         ...state,
         selectedDate: action.payload

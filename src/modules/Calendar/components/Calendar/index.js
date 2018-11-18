@@ -36,6 +36,7 @@ export default class Calendar extends Component {
   }
 
   setSelectedDate(date) {
+    // TODO: remove this
     this.props.setSelectedDate(date);
     this.props.setField('date', date);
   }
