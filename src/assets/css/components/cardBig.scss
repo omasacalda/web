@@ -3,7 +3,30 @@
 .cardBig-container {
   background-color: $primary-grey;
   display: flex;
-  padding: 50px;
+
+  h3.title {
+      color: $turquoise;
+      font-weight: bold;
+      font-size: 30px;
+  }
+
+  .row {
+    margin-top: 30px;
+  }
+
+  .left-card-container {
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    background-color: "blue";
+  }
+
+  .right-card-container {
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    background-color: "red";
+  }
 
   .customBig-card {
     background-color: $white;
@@ -16,7 +39,7 @@
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   
     &.med {
-      width: 250px;
+      width: 280px;
       height: 300px;
     }
   

@@ -14,7 +14,7 @@ const CCardBig = (props) => {
       </h3>
       <CButton
         text={props.text}
-        size="lg"
+        size="sm"
       />
     </Panel>
   )
