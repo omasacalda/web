@@ -8,7 +8,7 @@ export default class Main extends Component {
       <div>
         <Header />
 
-        <div className={this.props.className}>
+        <div className={this.props.className || ''}>
           {this.props.children}
         </div>
       </div>

@@ -20,7 +20,7 @@ export default class Header extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
-              <LinkContainer to="/">
+              <LinkContainer to="/" activeClassName="">
                 <NavItem>Home</NavItem>
               </LinkContainer>
               <LinkContainer to="/despre-noi">
@@ -37,6 +37,9 @@ export default class Header extends Component {
               </LinkContainer>
               <LinkContainer to="/media">
                 <NavItem>Media</NavItem>
+              </LinkContainer>
+              <LinkContainer to="/calendar/cluj-napoca">
+                <NavItem>Programări</NavItem>
               </LinkContainer>
               <LinkContainer to="/contact">
                 <NavItem>Contact</NavItem>

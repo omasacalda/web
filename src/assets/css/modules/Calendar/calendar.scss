@@ -1,0 +1,14 @@
+@import '../../variables.scss';
+
+.calendar {
+  margin-top: 20px;
+
+  .calendar-info-card {
+    font-size: 18px;
+    font-weight: 900;
+
+    p {
+      margin: 0;
+    }
+  }
+}
