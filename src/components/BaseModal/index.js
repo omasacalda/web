@@ -11,6 +11,7 @@ export default class BaseModal extends Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.onHide = this.onHide.bind(this);
   }
 
   openModal() {
@@ -21,9 +22,16 @@ export default class BaseModal extends Component {
     this.setState({ open: false });
   }
 
+  onHide() {
+    this.closeModal();
+    if (this.props.onHide) {
+      this.props.onHide();
+    }
+  }
+
   render() {
     return(
-      <Modal className={`custom-modal ${this.props.className || ''}`} show={this.state.open} onHide={this.closeModal}>
+      <Modal className={`custom-modal ${this.props.className || ''}`} show={this.state.open} onHide={this.onHide}>
         <Modal.Header closeButton>
           {this.props.title && <Modal.Title>{this.props.title}</Modal.Title>}
         </Modal.Header>

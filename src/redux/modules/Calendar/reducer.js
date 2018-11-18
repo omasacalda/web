@@ -8,6 +8,7 @@ const apiInitialState = {
 
 const initialState = {
   bookings: [],
+  pendingBookings: [],
   selectedDate: null,
   api: apiInitialState
 };
@@ -30,6 +31,13 @@ export default (state = initialState, action = {}) => {
         bookings: action.payload.data,
         api: { pending: false, success: true, error: false }
       };
+
+    case c.ADD_PENDING_BOOKINGS: {
+      return {
+        ...state,
+        pendingBookings: action.payload
+      }
+    }
 
     case c.SET_SELECTED_DATE:
       return {

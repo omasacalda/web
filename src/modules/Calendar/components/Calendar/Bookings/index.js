@@ -13,7 +13,9 @@ export default class Bookings extends Component {
   }
 
   onChange(date) {
-    this.props.setSelectedDate(getFormattedDate(date));
+    const formattedDate = getFormattedDate(date);
+
+    this.props.setSelectedDate(formattedDate);
     this.props.showModal();
   }
 

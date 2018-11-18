@@ -11,4 +11,6 @@ export const set = {
   date: actionCreator(c.SET_SELECTED_DATE),
 };
 
+export const addPendingBookings = actionCreator(c.ADD_PENDING_BOOKINGS);
+
 export const clear = actionCreator(c.CLEAR);

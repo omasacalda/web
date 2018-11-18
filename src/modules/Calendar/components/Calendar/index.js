@@ -11,18 +11,26 @@ export default class Calendar extends Component {
     super(props);
 
     this.showModal = this.showModal.bind(this);
+    this.onModalHide = this.onModalHide.bind(this);
   }
 
   componentDidMount() {
     this.props.getBookings();
+    this.props.connectSocket();
   }
 
   showModal() {
+    this.props.setBookingDateSocket();
     this.bookingModal.openModal();
+  }
+
+  onModalHide() {
+    this.props.removeBookingDateSocket();
   }
 
   render() {
     const props = this.props;
+    const bookings = [...props.bookings, ...props.pendingBookings];
 
     return (
       <MainTemplate className="container calendar">
@@ -47,11 +55,13 @@ export default class Calendar extends Component {
           </div>
         </div>
         <Bookings
-          bookings={props.bookings}
+          bookings={bookings}
           showModal={this.showModal}
           setSelectedDate={props.setSelectedDate} />
 
-        <BookingModal modalRef={ref => this.bookingModal = ref} />
+        <BookingModal
+          modalRef={ref => this.bookingModal = ref}
+          onHide={this.onModalHide} />
       </MainTemplate>
     );
   }

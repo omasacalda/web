@@ -20,3 +20,7 @@ export function setSelectedDate(payload) {
 export function clear() {
   return dispatch => dispatch(ac.clear());
 }
+
+export function addPendingBookings(bookings = []) {
+  return dispatch => dispatch(ac.addPendingBookings(bookings));
+}
