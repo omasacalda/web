@@ -9,6 +9,7 @@ import '../../../../assets/css/general.css';
 
 import Homepage from '../../../Homepage/containers/HomepageContainer';
 import Calendar from '../../../Calendar/containers/CalendarContainer';
+import Admin from '../../../Admin/containers/AdminContainer';
 
 library.add(fas);
 
@@ -18,8 +19,8 @@ export default class App extends Component {
       <Router>
         <main className="app-container">
           <Route exact path="/" component={Homepage} />
-          <Route exact path="/test" component={Homepage} />
-          <Route exact path="/calendar/:city" component={Calendar} />
+          <Route path="/calendar/:city" component={Calendar} />
+          <Route path="/admin" component={Admin} />
 
           <NotificationContainer />
         </main>

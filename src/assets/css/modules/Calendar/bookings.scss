@@ -67,5 +67,12 @@
         }
       }
     }
+
+    .tile-grey {
+      &:disabled {
+        background-color: $light-grey;
+        color: $disabled-grey;
+      }
+    }
   }
 }

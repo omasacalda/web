@@ -21,10 +21,10 @@ export function addBooking(booking) {
     try {
       await bookingAPI.addBooking(booking);
       dispatch(ac.addBooking.success());
-      NotificationManager.success(null, 'Programarea s-a adaugat cu succes', 5000);
+      NotificationManager.success('', 'Programarea s-a adaugat cu succes', 5000);
       dispatch(getBookings());
     } catch (err) {
-      NotificationManager.error(null, err.message, 5000);
+      NotificationManager.error('', err.message, 5000);
       dispatch(ac.addBooking.error(err.message));
     }
   };
