@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import Homepage from '../components/Homepage/index';
 import HomepageState from '../../../redux/modules/Homepage';
@@ -16,4 +17,4 @@ const mapStateToProps = state => ({
   selectedCity: HomepageState.selectors.selectedCity(state)
 });
 
-export default connect(mapStateToProps, mapActionsToProps)(Homepage);
+export default withRouter(connect(mapStateToProps, mapActionsToProps)(Homepage));

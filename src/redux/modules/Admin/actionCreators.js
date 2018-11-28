@@ -13,6 +13,12 @@ export const getProfile = asyncActionCreator(
   c.GET_PROFILE_ERROR
 );
 
+export const autoLogin = asyncActionCreator(
+  c.AUTO_LOGIN_PENDING,
+  c.AUTO_LOGIN_SUCCESS,
+  c.AUTO_LOGIN_ERROR
+);
+
 export const set = {
   field: actionCreator(c.SET_FIELD)
 };

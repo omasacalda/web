@@ -14,6 +14,7 @@ function getRequestHeader(token = null, others = {}) {
     'Content-Type': 'application/json',
     ...others
   };
+
   if (token) {
     header = Object.assign({}, header, { Authorization: `Bearer ${token}` });
   }
@@ -37,11 +38,6 @@ export function get(path, query = {}, token = null) {
       .set(header)
       .timeout({ response: TIMEOUT })
       .end((err, res) => {
-
-        console.log('err', err);
-        console.log('header', header);
-        return console.log('res', res);
-
         if (!res || !res.ok || err) {
           if (err.timeout) {
             return reject({ message: 'Something went wrong. Please try again or contact support.' });
