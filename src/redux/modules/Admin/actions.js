@@ -9,7 +9,6 @@ export function login(payload) {
     dispatch(ac.login.pending());
     try {
       const res = await authAPI.auth(payload);
-      console.log('login data:', res);
 
       if (!res.success || !res.data.token) {
         NotificationManager.error('', 'Error', 5000);
@@ -18,6 +17,31 @@ export function login(payload) {
 
       StorageService.store(res.data.token);
       dispatch(ac.login.success(res));
+      dispatch(getProfile(res.data.token));
+    } catch (err) {
+      NotificationManager.error('', err.message, 5000);
+      dispatch(ac.login.error(err.message));
+    }
+  };
+}
+
+export function getProfile(token) {
+
+  // console.log('token', token);
+
+  return async (dispatch) => {
+    dispatch(ac.getProfile.pending());
+    try {
+      const res = await authAPI.getProfile(token);
+
+      return console.log('res:', res);
+
+      if (!res.success || !res.data.token) {
+        NotificationManager.error('', 'Error', 5000);
+        return dispatch(ac.getProfile.error('No profile found'));
+      }
+
+      dispatch(ac.getProfile.success(res));
     } catch (err) {
       NotificationManager.error('', err.message, 5000);
       dispatch(ac.login.error(err.message));

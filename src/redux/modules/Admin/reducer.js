@@ -35,6 +35,26 @@ export default (state = initialState, action = {}) => {
     case c.LOGIN_SUCCESS:
       return {
         ...state,
+        currentUser: {
+          ...state.currentUser,
+          token: action.payload.data
+        },
+        api: { pending: false, success: true, error: false }
+      };
+
+    case c.GET_PROFILE_PENDING:
+      return {
+        ...state,
+        api: { pending: true, success: false, error: false }
+      };
+    case c.GET_PROFILE_ERROR:
+      return {
+        ...state,
+        api: { pending: false, success: false, error: action.payload }
+      };
+    case c.GET_PROFILE_SUCCESS:
+      return {
+        ...state,
         currentUser: action.payload.data,
         api: { pending: false, success: true, error: false }
       };

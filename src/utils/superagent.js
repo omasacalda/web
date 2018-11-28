@@ -37,12 +37,21 @@ export function get(path, query = {}, token = null) {
       .set(header)
       .timeout({ response: TIMEOUT })
       .end((err, res) => {
+
+        console.log('err', err);
+        console.log('header', header);
+        return console.log('res', res);
+
         if (!res || !res.ok || err) {
           if (err.timeout) {
             return reject({ message: 'Something went wrong. Please try again or contact support.' });
           }
 
-          return reject({ message: err });
+          return reject({ message: res.body.data.message || err.toString() });
+        }
+
+        if (!res.body) {
+          return reject({ message: 'Request failed' });
         }
 
         return resolve(res.body || res.text);
