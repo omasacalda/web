@@ -21,7 +21,7 @@ export default class Bookings extends Component {
   }
 
   checkDisabledDate(date) {
-    if (date.getDay() === 0 || date.getDay() === 6 || dateIsBefore(date)) {
+    if (date.getDay() === 0 || date.getDay() === 6 || (this.props.currentUser.type !== 'admin' && dateIsBefore(date))) {
       return true
     }
 
@@ -31,7 +31,7 @@ export default class Bookings extends Component {
   }
 
   getTileClass(date) {
-    if (dateIsBefore(date)) {
+    if (this.props.currentUser.type !== 'admin' && dateIsBefore(date)) {
       return 'date-tile tile-grey'
     }
 

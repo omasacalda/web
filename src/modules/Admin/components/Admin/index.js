@@ -13,6 +13,10 @@ export default class Admin extends Component {
     this.submitLoginForm = this.submitLoginForm.bind(this);
   }
 
+  componentDidMount() {
+    this.props.autoLogin();
+  }
+
   handleFieldChange(name, event) {
     this.props.setField(name, event.target.value);
   }

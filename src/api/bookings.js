@@ -8,3 +8,7 @@ export function getBookings() {
 export function addBooking(booking) {
   return post(`${API_HOST}/bookings`, booking);
 }
+
+export function deleteBooking(ID, token) {
+  return post(`${API_HOST}/bookings/${ID}`, {}, token);
+}

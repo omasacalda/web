@@ -1,4 +1,6 @@
 import { NotificationManager } from 'react-notifications';
+import history from '../../../history';
+
 import StorageService from '../../../services/Storage';
 
 import * as ac from './actionCreators';
@@ -9,7 +11,6 @@ export function login(payload) {
     dispatch(ac.login.pending());
     try {
       const res = await authAPI.auth(payload);
-      console.log('login data:', res);
 
       if (!res.success || !res.data.token) {
         NotificationManager.error('', 'Error', 5000);
@@ -18,9 +19,57 @@ export function login(payload) {
 
       StorageService.store(res.data.token);
       dispatch(ac.login.success(res));
+      dispatch(getProfile(res.data.token));
+      history.push('/calendar/cluj-napoca');
     } catch (err) {
       NotificationManager.error('', err.message, 5000);
       dispatch(ac.login.error(err.message));
+    }
+  };
+}
+
+export function getProfile(token) {
+  return async (dispatch) => {
+    dispatch(ac.getProfile.pending());
+    try {
+      const res = await authAPI.getProfile(token);
+
+      if (!res.success || !res.data) {
+        NotificationManager.error('', 'Error', 5000);
+        return dispatch(ac.getProfile.error('No profile found'));
+      }
+
+      dispatch(ac.getProfile.success(res));
+    } catch (err) {
+      NotificationManager.error('', err.message, 5000);
+      dispatch(ac.login.error(err.message));
+    }
+  };
+}
+
+export function autoLogin() {
+  return async (dispatch) => {
+    dispatch(ac.autoLogin.pending());
+    try {
+      const token = StorageService.get();
+
+      if (!token) {
+        return
+      }
+
+      if (StorageService.isExpired(token)) {
+        dispatch(ac.autoLogin.error('Auth token expired'));
+      }
+
+      const res = await authAPI.getProfile(token);
+
+      if (!res.success || !res.data) {
+        return dispatch(ac.autoLogin.error('No profile found'));
+      }
+
+      dispatch(ac.getProfile.success(res));
+    } catch (err) {
+      dispatch(ac.autoLogin.error(err.message));
     }
   };
 }

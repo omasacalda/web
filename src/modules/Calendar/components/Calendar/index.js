@@ -18,6 +18,7 @@ export default class Calendar extends Component {
   }
 
   componentDidMount() {
+    this.props.autoLogin();
     this.props.getBookings();
     this.props.connectSocket();
   }
@@ -83,7 +84,8 @@ export default class Calendar extends Component {
         <Bookings
           bookings={bookings}
           showModal={this.showModal}
-          setSelectedDate={this.setSelectedDate} />
+          setSelectedDate={this.setSelectedDate}
+          currentUser={props.currentUser} />
 
         <BookingModal
           modalRef={ref => this.bookingModal = ref}

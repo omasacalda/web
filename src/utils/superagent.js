@@ -14,6 +14,7 @@ function getRequestHeader(token = null, others = {}) {
     'Content-Type': 'application/json',
     ...others
   };
+
   if (token) {
     header = Object.assign({}, header, { Authorization: `Bearer ${token}` });
   }
@@ -42,7 +43,11 @@ export function get(path, query = {}, token = null) {
             return reject({ message: 'Something went wrong. Please try again or contact support.' });
           }
 
-          return reject({ message: err });
+          return reject({ message: res.body.data.message || err.toString() });
+        }
+
+        if (!res.body) {
+          return reject({ message: 'Request failed' });
         }
 
         return resolve(res.body || res.text);
