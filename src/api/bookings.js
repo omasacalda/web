@@ -5,6 +5,10 @@ export function getBookings() {
   return get(`${API_HOST}/bookings`);
 }
 
+export function getByID(bookingID = '') {
+  return get(`${API_HOST}/bookings/${bookingID}`);
+}
+
 export function addBooking(booking) {
   return post(`${API_HOST}/bookings`, booking);
 }

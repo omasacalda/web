@@ -4,6 +4,7 @@ import Homepage from './modules/Homepage/reducer';
 import Calendar from './modules/Calendar/reducer';
 import Socket from './modules/Socket/reducer';
 import Admin from './modules/Admin/reducer';
+import Booking from './modules/Booking/reducer';
 
 export default combineReducers({
   routing: routerReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   Calendar,
   Socket,
   Admin
+  Booking
 });
