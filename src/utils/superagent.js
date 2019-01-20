@@ -21,6 +21,16 @@ function getRequestHeader(token = null, others = {}) {
   return header;
 }
 
+const handleResponse = (resolve, reject) => (err, res) => {
+  if (err) {
+    return reject({ message: `${err}`});
+  }
+  if (!res.ok) {
+    return reject({ message: res.body.data.message || `${err}`});
+  }
+  return resolve(res.body);
+}
+
 /**
  * @description GET request
  *
@@ -37,21 +47,7 @@ export function get(path, query = {}, token = null) {
       .query(query)
       .set(header)
       .timeout({ response: TIMEOUT })
-      .end((err, res) => {
-        if (!res || !res.ok || err) {
-          if (err.timeout) {
-            return reject({ message: 'Something went wrong. Please try again or contact support.' });
-          }
-
-          return reject({ message: res.body.data.message || err.toString() });
-        }
-
-        if (!res.body) {
-          return reject({ message: 'Request failed' });
-        }
-
-        return resolve(res.body || res.text);
-      });
+      .end(handleResponse(resolve, reject));
   });
 }
 
@@ -71,21 +67,7 @@ export function post(path, payload, token = null) {
       .set(header)
       .send(payload)
       .timeout({ response: TIMEOUT })
-      .end((err, res) => {
-        if (!res || !res.ok || err) {
-          if (err.timeout) {
-            return reject({ message: 'Something went wrong. Please try again or contact support.' });
-          }
-
-          return reject({ message: res.error.message || err.toString() });
-        }
-
-        if (!res.body) {
-          return reject({ message: 'Request failed' });
-        }
-
-        return resolve(res.body);
-      });
+      .end(handleResponse(resolve, reject));
   });
 }
 
@@ -105,15 +87,7 @@ export function put(path, payload, token = null) {
       .send(payload)
       .set(header)
       .timeout({ response: TIMEOUT })
-      .end((err, res) => {
-        if (err) {
-          return reject({ message: err });
-        }
-        if (!res.body.success) {
-          return reject(res.body.err);
-        }
-        return resolve(res.body);
-      });
+      .end(handleResponse(resolve, reject));
   });
 }
 
@@ -133,16 +107,6 @@ export function del(path, query = {}, token = null) {
       .query(query)
       .set(header)
       .timeout({ response: TIMEOUT })
-      .end((err, res) => {
-        if (err) {
-          return reject({ message: err });
-        }
-
-        if (!res.body) {
-          return reject({ message: 'Request failed' });
-        }
-
-        return resolve(res.body);
-      });
+      .end(handleResponse(resolve, reject));
   });
 }
