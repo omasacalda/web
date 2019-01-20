@@ -61,3 +61,25 @@ export function cancel(bookingToken) {
     }
   };
 }
+
+export function cancelAsAdmin(bookingID) {
+  return async (dispatch) => {
+    dispatch(ac.remove.pending());
+
+    try {
+      const token = StorageService.get();
+
+      if (!token) {
+        return;
+      }
+
+      const res = await bookingAPI.deleteBooking(bookingID, token);
+
+      dispatch(ac.remove.success(res.data));
+      NotificationManager.success('', 'Programarea a fost anulata cu succes', 5000);
+      history.replace('/calendar/cluj-napoca');
+    } catch (err) {
+      dispatch(ac.remove.error(err));
+    }
+  };
+}

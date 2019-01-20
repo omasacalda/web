@@ -37,6 +37,11 @@ export default class CurrentBooking extends Component {
 
   cancelBooking() {
     if (window.confirm('Esti sigur ca doresti anularea rezervarii?')) {
+      if (this.props.currentUser.type === 'admin') {
+        const bookingID = this.props.match.params.bookingID;
+        this.props.cancelBookingAdmin(bookingID);
+      }
+
       const bookingToken = this.props.match.params.bookingToken;
       this.props.cancelBooking(bookingToken);
     }

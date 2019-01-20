@@ -9,7 +9,8 @@ const mapActionsToProps = dispatch =>
   bindActionCreators({
     get: BookingState.actions.get,
     getByID: BookingState.actions.getByID,
-    cancelBooking: BookingState.actions.cancel
+    cancelBooking: BookingState.actions.cancel,
+    cancelBookingAdmin: BookingState.actions.cancelAsAdmin
   }, dispatch);
 
 const mapStateToProps = state => ({
