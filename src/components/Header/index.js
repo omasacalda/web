@@ -32,26 +32,8 @@ export default class Header extends Component {
               <LinkContainer to="/" activeClassName="">
                 <NavItem>Home</NavItem>
               </LinkContainer>
-              <LinkContainer to="/despre-noi">
-                <NavItem>Despre noi</NavItem>
-              </LinkContainer>
-              <LinkContainer to="/activitate">
-                <NavItem>Activitate</NavItem>
-              </LinkContainer>
-              <LinkContainer to="/teambuilding">
-                <NavItem>Teambuilding</NavItem>
-              </LinkContainer>
-              <LinkContainer to="/share-food">
-                <NavItem>Share food</NavItem>
-              </LinkContainer>
-              <LinkContainer to="/media">
-                <NavItem>Media</NavItem>
-              </LinkContainer>
               <LinkContainer to="/calendar/cluj-napoca">
                 <NavItem>Programări</NavItem>
-              </LinkContainer>
-              <LinkContainer to="/contact">
-                <NavItem>Contact</NavItem>
               </LinkContainer>
 
               {currentUser && currentUser.id !== null ?
