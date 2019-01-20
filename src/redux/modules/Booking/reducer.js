@@ -64,8 +64,9 @@ export default (state = initialState, action = {}) => {
     case c.REMOVE_SUCCESS:
       return {
         ...state,
+        current: initialState.current,
         api: { ...initialState.api, success: true }
-      }
+      };
 
     default: {
       return state

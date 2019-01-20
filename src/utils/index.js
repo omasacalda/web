@@ -19,8 +19,13 @@ const dateIsBefore = (date) => {
   return moment(inputDate).isBefore(todayDate)
 };
 
+const getRomanianDate = (date) => {
+  return moment(date).format('DD.MM.YYYY');
+};
+
 export {
   getFormattedDate,
   getNextYearDate,
-  dateIsBefore
+  dateIsBefore,
+  getRomanianDate
 }
