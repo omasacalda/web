@@ -12,6 +12,6 @@ export default combineReducers({
   Homepage,
   Calendar,
   Socket,
-  Admin
+  Admin,
   Booking
 });
