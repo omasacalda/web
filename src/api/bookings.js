@@ -1,4 +1,4 @@
-import { get, post } from '../utils/superagent';
+import { get, post, del } from '../utils/superagent';
 import { API_HOST } from '../config';
 
 export function getBookings() {
@@ -14,5 +14,5 @@ export function addBooking(booking) {
 }
 
 export function deleteBooking(ID, token) {
-  return post(`${API_HOST}/bookings/${ID}`, {}, token);
+  return del(`${API_HOST}/bookings/${ID}`, {}, token);
 }
