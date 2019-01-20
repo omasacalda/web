@@ -11,6 +11,7 @@ import '../../../../assets/css/general.css';
 import Homepage from '../../../Homepage/containers/HomepageContainer';
 import Calendar from '../../../Calendar/containers/CalendarContainer';
 import Admin from '../../../Admin/containers/AdminContainer';
+import CurrentBooking from '../../../Booking/containers/CurrentContainer';
 import AdminLogout from '../../../Admin/containers/LogoutContainer';
 
 library.add(fas);
@@ -23,6 +24,7 @@ export default class App extends Component {
           <Route exact path="/" component={Homepage} />
           <Route path="/calendar/:city" component={Calendar} />
           <Route path="/admin" component={Admin} />
+          <Route exact path="/booking/:bookingToken" component={CurrentBooking} />
           <Route path="/logout" component={AdminLogout} />
 
           <NotificationContainer />
