@@ -22,10 +22,12 @@ export default class App extends Component {
       <Router history={history}>
         <main className="app-container">
           <Route exact path="/" component={Homepage} />
-          <Route path="/calendar/:city" component={Calendar} />
-          <Route path="/admin" component={Admin} />
+          <Route exact path="/calendar/:city" component={Calendar} />
           <Route exact path="/booking/:bookingToken" component={CurrentBooking} />
-          <Route path="/logout" component={AdminLogout} />
+
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/admin/booking/:bookingID" component={CurrentBooking} />
+          <Route exact path="/logout" component={AdminLogout} />
 
           <NotificationContainer />
         </main>

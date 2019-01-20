@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Calendar from 'react-calendar/dist/entry.nostyle';
+import history from '../../../../../history';
 
 import { getFormattedDate, getNextYearDate, dateIsBefore } from '../../../../../utils';
 
@@ -16,6 +18,16 @@ export default class Bookings extends Component {
   onChange(date) {
     const formattedDate = getFormattedDate(date);
 
+    if (this.props.currentUser.type === 'admin') {
+      const booking = this.props.bookings.find((booking) => {
+        return booking.date === getFormattedDate(date)
+      });
+
+      if (booking) {
+        return history.push(`/admin/booking/${booking.id}`);
+      }
+    }
+
     this.props.setSelectedDate(formattedDate);
     this.props.showModal();
   }
@@ -26,13 +38,21 @@ export default class Bookings extends Component {
     }
 
     return this.props.bookings.find((booking) => {
-      return booking.date === getFormattedDate(date)
+      return this.props.currentUser.type !== 'admin' && booking.date === getFormattedDate(date)
     });
   }
 
   getTileClass(date) {
     if (this.props.currentUser.type !== 'admin' && dateIsBefore(date)) {
       return 'date-tile tile-grey'
+    }
+
+    if (this.props.currentUser.type === 'admin') {
+      const bookingOccupied = this.props.bookings.find((booking) => {
+        return booking.date === getFormattedDate(date)
+      });
+
+      return bookingOccupied ? 'date-tile tile-red' : 'date-tile';
     }
 
     return 'date-tile'

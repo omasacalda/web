@@ -8,3 +8,4 @@ export const bistrita = require('../../assets/images/bistrtita.jpg');
 export const satuMare = require('../../assets/images/satu-mare.jpg');
 export const constanta = require('../../assets/images/constanta.jpg');
 export const zalau = require('../../assets/images/zalau.jpg');
+export const loader = require('../../assets/images/loader.svg');

@@ -5,7 +5,6 @@
 
   .react-calendar {
     border-radius: 20px;
-    //border: 1px solid $grey;
 
     .react-calendar__navigation {
       align-items: center;
@@ -61,10 +60,8 @@
       }
 
       ~.react-calendar__month-view__days__day--weekend {
-        &:disabled {
-          background-color: $light-grey;
-          color: $disabled-grey;
-        }
+        background-color: $light-grey;
+        color: $disabled-grey;
       }
     }
 
@@ -72,6 +69,15 @@
       &:disabled {
         background-color: $light-grey;
         color: $disabled-grey;
+      }
+    }
+
+    .tile-red {
+      background-color: $red;
+      color: $white;
+
+      &:hover {
+        background-color: $light-red;
       }
     }
   }
