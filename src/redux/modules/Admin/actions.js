@@ -54,7 +54,7 @@ export function autoLogin() {
       const token = StorageService.get();
 
       if (!token) {
-        return
+        return;
       }
 
       if (StorageService.isExpired(token)) {
@@ -70,6 +70,27 @@ export function autoLogin() {
       dispatch(ac.getProfile.success(res));
     } catch (err) {
       dispatch(ac.autoLogin.error(err.message));
+    }
+  };
+}
+
+export function logout() {
+  return async (dispatch) => {
+    dispatch(ac.logout.pending());
+    try {
+      const token = StorageService.get();
+
+      if (!token) {
+        return
+      }
+
+      await StorageService.remove(token);
+      dispatch(ac.logout.success());
+      window.location = "/";
+      // history.replace('/'); // TODO: check this
+    } catch (err) {
+      NotificationManager.error('', 'Unable to logout', 5000);
+      dispatch(ac.logout.error('Unable to logout'));
     }
   };
 }

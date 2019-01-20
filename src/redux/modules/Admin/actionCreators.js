@@ -7,6 +7,12 @@ export const login = asyncActionCreator(
   c.LOGIN_ERROR
 );
 
+export const logout = asyncActionCreator(
+  c.LOGOUT_PENDING,
+  c.LOGOUT_SUCCESS,
+  c.LOGOUT_ERROR
+);
+
 export const getProfile = asyncActionCreator(
   c.GET_PROFILE_PENDING,
   c.GET_PROFILE_SUCCESS,
