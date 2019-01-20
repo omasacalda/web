@@ -11,12 +11,14 @@ const mapActionsToProps = dispatch =>
   bindActionCreators({
     getBookings: CalendarState.actions.getBookings,
     setSelectedDate: CalendarState.actions.setSelectedDate,
-    connectSocket: SocketState.actions.connect,
-    setBookingDateSocket: SocketState.actions.setBookingDate,
-    removeBookingDateSocket: SocketState.actions.removeBookingDate,
     setField: CalendarState.actions.setField,
     addBooking: CalendarState.actions.addBooking,
     clearFields: CalendarState.actions.clearFields,
+
+    connectSocket: SocketState.actions.connect,
+    setBookingDateSocket: SocketState.actions.setBookingDate,
+    removeBookingDateSocket: SocketState.actions.removeBookingDate,
+
     autoLogin: AdminState.actions.autoLogin,
   }, dispatch);
 
@@ -26,6 +28,7 @@ const mapStateToProps = state => ({
   pendingBookings: state.Calendar.pendingBookings,
   selectedDate: CalendarState.selectors.selectedDate(state),
   fields: CalendarState.selectors.fields(state),
+
   currentUser: AdminState.selectors.currentUser(state),
 });
 

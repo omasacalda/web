@@ -3,10 +3,19 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { logo } from '../../assets/images';
 
 export default class Header extends Component {
+  componentDidMount() {
+    this.props.autoLogin();
+  }
+
   render() {
+    const props = this.props,
+      currentUser = props.currentUser;
+
     return (
       <header>
         <Navbar>
@@ -44,6 +53,13 @@ export default class Header extends Component {
               <LinkContainer to="/contact">
                 <NavItem>Contact</NavItem>
               </LinkContainer>
+
+              {currentUser && currentUser.id !== null ?
+                <LinkContainer to="/logout">
+                  <NavItem>
+                    <FontAwesomeIcon icon="user" /> Logout
+                  </NavItem>
+                </LinkContainer> : null}
             </Nav>
           </Navbar.Collapse>
         </Navbar>

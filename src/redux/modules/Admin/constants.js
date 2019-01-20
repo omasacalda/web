@@ -4,6 +4,10 @@ export const LOGIN_PENDING = `${module}/LOGIN_PENDING`;
 export const LOGIN_ERROR = `${module}/LOGIN_ERROR`;
 export const LOGIN_SUCCESS = `${module}/LOGIN_SUCCESS`;
 
+export const LOGOUT_PENDING = `${module}/LOGOUT_PENDING`;
+export const LOGOUT_ERROR = `${module}/LOGOUT_ERROR`;
+export const LOGOUT_SUCCESS = `${module}/LOGOUT_SUCCESS`;
+
 export const GET_PROFILE_PENDING = `${module}/GET_PROFILE_PENDING`;
 export const GET_PROFILE_ERROR = `${module}/GET_PROFILE_ERROR`;
 export const GET_PROFILE_SUCCESS = `${module}/GET_PROFILE_SUCCESS`;

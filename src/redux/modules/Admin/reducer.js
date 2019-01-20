@@ -83,6 +83,23 @@ export default (state = initialState, action = {}) => {
         api: { pending: false, success: true, error: false }
       };
 
+    case c.LOGOUT_PENDING:
+      return {
+        ...state,
+        api: { pending: true, success: false, error: false }
+      };
+    case c.LOGOUT_ERROR:
+      return {
+        ...state,
+        api: { pending: false, success: false, error: action.payload }
+      };
+    case c.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        currentUser: initialState.currentUser,
+        api: { pending: false, success: true, error: false }
+      };
+
     case c.SET_FIELD: {
       const fieldsCopy = Object.assign({}, state.fields);
       _set(fieldsCopy, action.path, action.payload);

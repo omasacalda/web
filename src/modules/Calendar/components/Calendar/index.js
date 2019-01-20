@@ -18,7 +18,6 @@ export default class Calendar extends Component {
   }
 
   componentDidMount() {
-    this.props.autoLogin();
     this.props.getBookings();
     this.props.connectSocket();
   }
