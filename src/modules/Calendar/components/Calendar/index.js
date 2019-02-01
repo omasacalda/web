@@ -40,7 +40,6 @@ export default class Calendar extends Component {
   }
 
   setSelectedDate(date) {
-    // TODO: remove this
     this.props.setSelectedDate(date);
     this.props.setField('date', date);
   }
@@ -80,11 +79,52 @@ export default class Calendar extends Component {
             </InfoCard>
           </div>
         </div>
+
         <Bookings
           bookings={bookings}
           showModal={this.showModal}
           setSelectedDate={this.setSelectedDate}
           currentUser={props.currentUser} />
+
+        <div className="info-section-wrapper row">
+          <div className="col-xs-12">
+            <InfoCard>
+              <strong>Important:</strong>
+              <br/><br/>
+              <ul>
+                <li>
+                  <strong>Locația:</strong> Bdul 21 Decembrie 1989 nr. 108, in spatele curtii, pe dreapta. Avem un loc de parcare!
+                </li>
+                <li>
+                  <strong>Program:</strong> De luni pana vineri, de la 11.00 la 15.00
+                </li>
+                <li>
+                  <strong>Echipa:</strong> Echipa ideala este formata din 5 persoane! Voluntarii trebuie sa fie clinic sanatosi! <i>(mai multe persoane nu incap; mai putine inseamna risc ca mancarea sa nu fie gata la timp)</i>
+                </li>
+                <li>
+                  <strong>Activități:</strong>
+                  <ul>
+                    <li>pregatirea alimentelor</li>
+                    <li>prepararea hranei</li>
+                    <li>spalarea vaselor/echipamentelor folosite</li>
+                    <li>spalarea pe jos in cele 3 incaperi in care se lucreaza</li>
+                    <li>transportul si distribuirea caserolelor in Piata Muzeului - la ora 15.00 se imparte mancarea beneficiarilor (transportul propriu zis este asigurat de noi)</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Cantități:</strong> 200 – 230 mese calde/zi
+                </li>
+                <li>
+                  <strong>Ingredientele:</strong>
+                  <ul>
+                    <li>Ingredientele sunt asigurate de noi. Daca doresti sa ne ajuti financiar, costul unei portii de mancare este intre 2 si 3 lei, in functie de reteta.</li>
+                    <li>Pentru donatii, emitem chitanta persoanelor fizice sau incheiem contract de sponsorizare cu persoanele juridice</li>
+                  </ul>
+                </li>
+              </ul>
+            </InfoCard>
+          </div>
+        </div>
 
         <BookingModal
           modalRef={ref => this.bookingModal = ref}

@@ -10,7 +10,7 @@ const BookingModal = (props) => (
     ref={props.modalRef}
     {...props}>
     <p className="title">O Masă Caldă</p>
-    <p className="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+    <p className="info">Pe adresa de mail pe care ne-o dai, îți vom trimite mesajul de confirmare a rezervării. Dacă intervine ceva, aveți posibilitatea renunțării la rezervare, ca noi să avem timp să găsim echipă înlocuitoare. Mulțumim!</p>
     <form onSubmit={props.addBooking}>
       <div className="form-fields">
         <FormGroup controlId="firstName">
@@ -70,11 +70,14 @@ const BookingModal = (props) => (
               <option value="individual">Individual</option>
             </FormControl>
           </FormGroup>
+
+          <div className="col-xs-12">
+            <CButton
+              type="submit"
+              text="Programează-te"
+              size="med" />
+          </div>
         </div>
-        <CButton
-          type="submit"
-          text="Programează-te"
-          size="med" />
       </div>
     </form>
   </BaseModal>

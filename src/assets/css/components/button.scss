@@ -12,6 +12,10 @@
 
   &.med {
     min-width: 300px;
+
+    @media (max-width: $screen-xs-max) {
+      min-width: initial;
+    }
   }
 
   &.large {

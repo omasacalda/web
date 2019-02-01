@@ -11,4 +11,17 @@
       margin: 0;
     }
   }
+
+  .info-section-wrapper {
+    margin-top: 15px;
+
+    .calendar-info-card {
+      text-align: left;
+
+      ul {
+        font-size: 16px;
+        font-weight: normal;
+      }
+    }
+  }
 }

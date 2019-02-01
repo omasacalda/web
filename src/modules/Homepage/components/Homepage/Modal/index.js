@@ -10,7 +10,7 @@ const HomeModal = (props) => (
     ref={props.modalRef}
     {...props}>
     <p className="title">O Masă Caldă</p>
-    <p className="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+    <p className="info">Salut, în acest moment calendarul este disponibil doar pentru Cluj-Napoca. Mulțumim!</p>
     <FormGroup controlId="formControlsSelect">
       <FormControl
         componentClass="select"

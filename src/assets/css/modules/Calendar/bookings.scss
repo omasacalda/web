@@ -1,8 +1,6 @@
 @import '../../variables.scss';
 
 .calendar-bookings {
-
-
   .react-calendar {
     border-radius: 20px;
 
@@ -20,12 +18,20 @@
         font-weight: 900;
         font-size: 28px;
         outline: none;
+
+        @media (max-width: $screen-xs-max) {
+          font-size: 22px;
+        }
       }
 
       .react-calendar__navigation__label {
         text-transform: capitalize;
         cursor: default;
         pointer-events: none;
+
+        @media (max-width: $screen-xs-max) {
+          font-size: 22px;
+        }
       }
     }
 

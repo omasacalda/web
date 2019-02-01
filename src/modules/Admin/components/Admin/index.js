@@ -33,7 +33,7 @@ export default class Admin extends Component {
     return (
       <MainTemplate className="homepage admin">
         <section className="hero" style={{ backgroundImage: `url(${hero})` }}>
-          <div className="info">
+          <div className="container info">
             <LoginForm
               fields={props.fields}
               handleFieldChange={this.handleFieldChange}

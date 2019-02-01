@@ -34,14 +34,9 @@ export default class Homepage extends Component {
     return (
       <MainTemplate className="homepage">
         <section className="hero" style={{ backgroundImage: `url(${hero})` }}>
-          <div className="info">
+          <div className="container info">
             <h1>O Masă Caldă</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua
-            </p>
             <CButton text="Înscrie-te" size="med" onClick={this.showModal} />
-            <span className="subtext">Porții servite: 69.452</span>
           </div>
         </section>
 

@@ -1,7 +1,17 @@
+@import '../../variables.scss';
+
 .admin {
   .hero {
     .info {
-      width: 25%;
+      width: 45%;
+
+      @media (min-width: $screen-lg-min) {
+        width: 25%;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        width: 100%;
+      }
     }
   }
 }
