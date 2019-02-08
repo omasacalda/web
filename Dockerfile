@@ -1,5 +1,5 @@
 # Base image
-FROM node:10.3.0-slim
+FROM node:10
 CMD ["npm", "run", "start:dev"]
 
 # Create app directory
@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY package.json /usr/src/app/package.json
-RUN npm install
+RUN yarn
 
 # Bundle app source
 COPY . /usr/src/app

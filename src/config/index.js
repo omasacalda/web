@@ -1,3 +1,3 @@
-export const IS_DEVELOPMENT = true;
-export const API_HOST = 'https://api.masacalda.democlient.info';
+export const IS_DEVELOPMENT = false;
+export const API_HOST = 'https://api.calendar.omasacalda.ro';
 export const TIMEOUT = 30000;
