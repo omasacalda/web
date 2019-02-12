@@ -21,12 +21,20 @@ function getRequestHeader(token = null, others = {}) {
   return header;
 }
 
+const getErrorMessage = (err, res) => {
+  try {
+    return res.body.data.message
+  } catch (err) {
+    return `${err}`
+  }
+}
+
 const handleResponse = (resolve, reject) => (err, res) => {
   if (err) {
-    return reject({ message: `${err}`});
+    return reject({ message: getErrorMessage(err, res)});
   }
   if (!res.ok) {
-    return reject({ message: res.body.data.message || `${err}`});
+    return reject({ message: getErrorMessage(err, res)});
   }
   return resolve(res.body);
 }

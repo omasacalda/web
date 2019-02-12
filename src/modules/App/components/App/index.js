@@ -6,6 +6,7 @@ import 'react-notifications/lib/notifications.css';
 import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect'
 import { NotificationContainer } from 'react-notifications';
 import history from '../../../../history';
+import { Helmet } from "react-helmet";
 
 import '../../../../assets/css/general.css';
 
@@ -28,6 +29,11 @@ export default class App extends Component {
     return(
       <Router history={history}>
         <main className="app-container">
+          <Helmet>
+            <meta property="og:image" content="https://api.calendar.omasacalda.ro/static/img.jpeg" />
+            <meta property="og:description" content="Oricine poate beneficia de o masă caldă. Nu privim la etnia, vârsta, condiția materială sau la îmbrăcămintea celor care vin să primească mâncare. Hrana este o nevoie de bază și cei care vin la cantinele noastre chiar au nevoie de ea." />
+          </Helmet>
+
           <Route exact path="/" component={Homepage} />
           <Route exact path="/calendar/:city" component={Calendar} />
           <Route exact path="/booking/:bookingToken" component={CurrentBooking} />
