@@ -49,7 +49,7 @@ const BookingModal = (props) => (
             onChange={(e) => props.handleFieldChange('email', e)} />
           <FormControl.Feedback />
         </FormGroup>
-        <div className="row">
+        <div className="row form-group">
           <FormGroup controlId="people" bsClass="col-xs-6">
             <FormControl
               componentClass="select"
@@ -70,7 +70,20 @@ const BookingModal = (props) => (
               <option value="individual">Individual</option>
             </FormControl>
           </FormGroup>
+        </div>
 
+        {props.fields.type === 'companie' &&
+        <FormGroup controlId="companyName">
+          <FormControl
+            required
+            type="text"
+            placeholder="Nume companie"
+            value={props.fields.company_name}
+            onChange={(e) => props.handleFieldChange('company_name', e)} />
+          <FormControl.Feedback />
+        </FormGroup>}
+
+        <div className="row">
           <div className="col-xs-12">
             <CButton
               type="submit"

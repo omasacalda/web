@@ -5,8 +5,8 @@ export function getBookings() {
   return get(`${API_HOST}/bookings`);
 }
 
-export function getByID(bookingID = '') {
-  return get(`${API_HOST}/bookings/${bookingID}`);
+export function getByID(bookingID = '', token) {
+  return get(`${API_HOST}/bookings/${bookingID}`, {}, token);
 }
 
 export function addBooking(booking) {

@@ -67,6 +67,10 @@ export default class CurrentBooking extends Component {
         <Row name="Nume lider" value={`${booking.user.first_name} ${booking.user.last_name}`} />
         <Row name="Email lider" value={booking.user.email} />
         <Row name="Telefon lider" value={booking.user.phone} />
+        <Row name="Tip" value={booking.type} />
+
+        {booking.type === 'companie' &&
+          <Row name="Nume companie" value={booking.company_name} />}
 
         <CButton
           className="cancel-btn"

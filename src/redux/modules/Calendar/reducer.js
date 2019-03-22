@@ -15,7 +15,8 @@ const fieldsInitialState = {
   person_count: '4',
   type: 'companie',
   date: null,
-  city_id: 1
+  city_id: 1,
+  company_name: ''
 };
 
 const initialState = {

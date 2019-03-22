@@ -16,7 +16,7 @@ export function get(bookingToken) {
       }
 
       const bookingID = bookingDecoded.iss.booking_id;
-      const res = await bookingAPI.getByID(bookingID);
+      const res = await bookingAPI.getByID(bookingID, bookingToken);
 
       dispatch(ac.get.success(res.data));
     } catch (err) {
@@ -30,7 +30,8 @@ export function getByID(bookingID) {
     dispatch(ac.get.pending());
 
     try {
-      const res = await bookingAPI.getByID(bookingID);
+      const adminToken = StorageService.get();
+      const res = await bookingAPI.getByID(bookingID, adminToken);
 
       dispatch(ac.get.success(res.data));
     } catch (err) {
