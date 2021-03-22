@@ -40,7 +40,7 @@
     "build": "GENERATE_SOURCEMAP=false npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start-prod": "node server.js"
+    "start-prod": "npm run build && node server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
