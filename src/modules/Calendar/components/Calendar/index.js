@@ -58,21 +58,21 @@ export default class Calendar extends Component {
     const bookings = [...props.bookings, ...props.pendingBookings];
 
     return (
-      <MainTemplate className="container calendar">
-        <div className="row">
-          <div className="col-xs-12 col-sm-4">
+      <MainTemplate className='container calendar'>
+        <div className='row'>
+          <div className='col-xs-12 col-sm-4'>
             <InfoCard>
               <p>Program: Luni-Vineri</p>
               <p>Orele: 11:00 si 15:00</p>
             </InfoCard>
           </div>
-          <div className="col-xs-12 col-sm-4">
+          <div className='col-xs-12 col-sm-4'>
             <InfoCard>
               <p>Numar persoane:</p>
               <p>(minim 4, maxim 6)</p>
             </InfoCard>
           </div>
-          <div className="col-xs-12 col-sm-4">
+          <div className='col-xs-12 col-sm-4'>
             <InfoCard>
               <p>Locatie: 21 Decembrie,</p>
               <p>Nr 108, Cluj-Napoca</p>
@@ -84,31 +84,45 @@ export default class Calendar extends Component {
           bookings={bookings}
           showModal={this.showModal}
           setSelectedDate={this.setSelectedDate}
-          currentUser={props.currentUser} />
+          currentUser={props.currentUser}
+        />
 
-        <div className="info-section-wrapper row">
-          <div className="col-xs-12">
+        <div className='info-section-wrapper row'>
+          <div className='col-xs-12'>
             <InfoCard>
-              <strong>Important:</strong>
-              <br/><br/>
+              <strong>De știut:</strong>
+              <br />
+              <br />
               <ul>
                 <li>
-                  <strong>Locația:</strong> Bdul 21 Decembrie 1989 nr. 108, in spatele curtii, pe dreapta. Avem un loc de parcare!
+                  <strong>Locația:</strong> Bdul 21 Decembrie 1989 nr. 108, în
+                  curtea interioară, pe dreapta. Avem un loc de parcare!
                 </li>
                 <li>
-                  <strong>Program:</strong> De luni pana vineri, de la 11.00 la 15.00
+                  <strong>Program:</strong> De luni până vineri, de la 11.00 la
+                  15.00
                 </li>
                 <li>
-                  <strong>Echipa:</strong> Echipa ideala este formata din 5 persoane! Voluntarii trebuie sa fie clinic sanatosi! <i>(mai multe persoane nu incap; mai putine inseamna risc ca mancarea sa nu fie gata la timp)</i>
+                  <strong>Echipa:</strong> Echipa poate fi formată din 2-4
+                  persoane!{' '}
+                  <i>
+                    <strong>Voluntarii trebuie să fie clinic sănătoși! </strong>
+                    (mai multe persoane nu incap; mai putine inseamna risc ca
+                    mancarea sa nu fie gata la timp)
+                  </i>
                 </li>
                 <li>
                   <strong>Activități:</strong>
                   <ul>
-                    <li>pregatirea alimentelor</li>
+                    <li>pregătirea alimentelor</li>
                     <li>prepararea hranei</li>
-                    <li>spalarea vaselor/echipamentelor folosite</li>
-                    <li>spalarea pe jos in cele 3 incaperi in care se lucreaza</li>
-                    <li>transportul si distribuirea caserolelor in Piata Muzeului - la ora 15.00 se imparte mancarea beneficiarilor (transportul propriu zis este asigurat de noi)</li>
+                    <li>spălarea vaselor și echipamentelor folosite</li>
+                    <li>igienizarea celor 3 incăperi în care se lucrează</li>
+                    <li>
+                      transportul și distribuirea caserolelor în Piața Cipariu,
+                      unde, la ora 15.00, împărțim mâncarea beneficiarilor
+                      (transportul propriu zis este asigurat de noi)
+                    </li>
                   </ul>
                 </li>
                 <li>
@@ -117,8 +131,15 @@ export default class Calendar extends Component {
                 <li>
                   <strong>Ingredientele:</strong>
                   <ul>
-                    <li>Ingredientele sunt asigurate de noi. Daca doresti sa ne ajuti financiar, costul unei portii de mancare este intre 2 si 3 lei, in functie de reteta.</li>
-                    <li>Pentru donatii, emitem chitanta persoanelor fizice sau incheiem contract de sponsorizare cu persoanele juridice</li>
+                    <li>
+                      Costul unei mese calde este între 2 și 4 lei, în funcție
+                      de reteță. Și noi asigurăm ingredientele.
+                    </li>
+                    <li>
+                      Pentru donații, emitem chitanță persoanelor
+                      fizice/încheiem contract de sponsorizare cu persoanele
+                      juridice
+                    </li>
                   </ul>
                 </li>
               </ul>
@@ -127,11 +148,12 @@ export default class Calendar extends Component {
         </div>
 
         <BookingModal
-          modalRef={ref => this.bookingModal = ref}
+          modalRef={ref => (this.bookingModal = ref)}
           onHide={this.onModalHide}
           handleFieldChange={this.handleFieldChange}
           addBooking={this.addBooking}
-          fields={this.props.fields} />
+          fields={this.props.fields}
+        />
       </MainTemplate>
     );
   }
