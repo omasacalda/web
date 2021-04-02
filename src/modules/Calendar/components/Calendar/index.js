@@ -69,7 +69,7 @@ export default class Calendar extends Component {
           <div className='col-xs-12 col-sm-4'>
             <InfoCard>
               <p>Numar persoane:</p>
-              <p>(minim 4, maxim 6)</p>
+              <p>(minim 2, maxim 4)</p>
             </InfoCard>
           </div>
           <div className='col-xs-12 col-sm-4'>
@@ -126,7 +126,7 @@ export default class Calendar extends Component {
                   </ul>
                 </li>
                 <li>
-                  <strong>Cantități:</strong> 200 – 230 mese calde/zi
+                  <strong>Cantități:</strong> 250 mese calde/zi
                 </li>
                 <li>
                   <strong>Ingredientele:</strong>
